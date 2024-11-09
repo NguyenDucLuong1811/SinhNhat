@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffcccb; /* Màu hồng pastel */
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            flex-direction: column;
+        }
+
+        .container {
+            border: 10px solid transparent;
+            border-radius: 15px;
+            padding: 20px;
+            background: linear-gradient(white, rgba(255, 255, 255, 0.8)), 
+                        linear-gradient(45deg, #ff4757, #ffa502); /* Gradient cho khung viền */
+            background-clip: padding-box, border-box;
+            border-image: linear-gradient(45deg, #ff4757, #ffa502) 1; /* Viền gradient */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .heart {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: #ff4757;
+            transform: rotate(-45deg);
+            bottom: -60px;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: #ff4757;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -30px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 30px;
+            top: 0;
+        }
+
+        .face {
+            font-size: 4em;
+            position: absolute;
+            bottom: 100px;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .text {
+            position: relative;
+            z-index: 1;
+            color: #333;
+            font-size: 2em;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+            margin: 10px 0;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-600px); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text" style="animation-delay: 0s;">🎉 Sinh nhật vui vẻ nhé Duyên! 🎂</div>
+        <div class="text" style="animation-delay: 2s;">🌺 Chúc cậu ngày 1 xinh đẹp hơn! 🌼</div>
+        <div class="text" style="animation-delay: 4s;">📚 Và ngày càng học giỏi hơn nhé! 🌟</div>
+    </div>
+
+    <!-- Tạo nhiều hình trái tim -->
+    <div class="heart"></div>
+    <div class="heart" style="left: 150px; animation-duration: 6s;"></div>
+    <div class="heart" style="left: 300px; animation-duration: 7s;"></div>
+    <div class="heart" style="left: 450px; animation-duration: 5s;"></div>
+    <div class="heart" style="left: 600px; animation-duration: 8s;"></div>
+    <div class="heart" style="left: 750px; animation-duration: 4s;"></div>
+    
+    <!-- Tạo nhiều gương mặt -->
+    <div class="face" style="left: 50px; animation-duration: 6s;">😍❤️</div>
+    <div class="face" style="left: 200px; animation-duration: 7s;">😍❤️</div>
+    <div class="face" style="left: 350px; animation-duration: 5s;">😍❤️</div>
+    <div class="face" style="left: 500px; animation-duration: 8s;">😍❤️</div>
+    <div class="face" style="left: 650px; animation-duration: 4s;">😍❤️</div>
+
+    <script>
+        // Thay đổi vị trí trái tim ngẫu nhiên
+        const hearts = document.querySelectorAll('.heart');
+        hearts.forEach(heart => {
+            const randomX = Math.random() * window.innerWidth;
+            heart.style.left = `${randomX}px`;
+        });
+
+        // Thay đổi vị trí gương mặt ngẫu nhiên
+        const faces = document.querySelectorAll('.face');
+        faces.forEach(face => {
+            const randomX = Math.random() * window.innerWidth;
+            face.style.left = `${randomX}px`;
+        });
+    </script>
+</body>
+</html>
